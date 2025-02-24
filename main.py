@@ -9,6 +9,9 @@ import nltk
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
 
+# nltk.download('punkt')
+
+
 # -------------------------------
 # Загрузка и подготовка реального датасета
 # -------------------------------
@@ -215,7 +218,7 @@ def main():
     tokenizer = T5Tokenizer.from_pretrained(model_name)
 
     print("Загрузка реального датасета перевода (WMT16) ...")
-    texts, targets = load_translation_dataset(num_samples=500)
+    texts, targets = load_translation_dataset(num_samples=1000)
     dataset = TranslationDataset(tokenizer, texts, targets, max_length=64)
 
     # Разбиваем датасет на train и test (например, 80/20)
